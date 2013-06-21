@@ -1,0 +1,62 @@
+//
+// Responsive: Mobile
+// --------------------------------------------------
+
+
+@media (max-width: 480px) {
+
+    #package {
+      min-width: 360px;
+    }
+
+  .scrollable {
+  	.container {
+      padding: 0 30px 0 25px;
+  		margin: 0 auto;
+  		.wrapper {
+  			width: 100%;
+  		}
+  	}
+  }
+
+  .col-container {
+    overflow: visible;
+  }
+
+  .caroufredsel_wrapper, .library-nav {
+    display: none !important;
+  }
+
+  .content-container, .content-container.collaborator-list .scroll-list  {
+    height: auto;
+  }
+
+  .left-col {
+  	width: 100%;
+  	.multicontent {
+	  	width: 100%;
+	  	height: auto;
+
+	  }
+  }
+  .right-col {
+  	width: 100%;
+  }
+
+  #projects-list, #photography-list, #stills-library {
+    li {
+      .box-sizing(border-box);
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+      a {
+        width: 100%;
+      }
+    }
+  }
+
+  #mobileMask {
+    display: block;
+  }
+
+}

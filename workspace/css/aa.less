@@ -1,0 +1,1596 @@
+@font-face {
+    font-family: 'FuturaStdMedium';
+    src: url('../fonts/futurastd-medium.eot');
+    src: url('../fonts/futurastd-medium?#iefix') format('embedded-opentype'),
+         url('../fonts/futurastd-medium.woff') format('woff'),
+         url('../fonts/futurastd-medium.ttf') format('truetype'),
+         url('../fonts/futurastd-medium.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+  height: 100%;
+}
+
+#slides-wrapper {
+  .opacity(0);
+  min-width: 998px;
+}
+
+h2.title {
+  display: none;
+}
+
+.btn {
+  background: @globalAccent;
+  color: @white;
+  padding: 8px 14px 6px 10px;
+  display: inline-block;
+  text-transform: uppercase;
+  &:hover {
+    color: @white;
+    text-decoration: none;
+  }
+}
+
+#navContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 298px;
+  display: block;   
+  margin-top: -152px;
+  margin-left: -148px;
+  z-index: 10;
+  .transition(top 0.16s ease-in-out);
+  &.nav-dock {
+    top: -10px;
+    .logo-mark {
+      .opacity(0);
+    }
+    .logo-text {
+      .opacity(0);
+    }
+    .liquid-nav {
+      /*
+      &:hover + #sticky_header {
+        a {
+          .opacity(100);
+        }
+      }
+      */
+    }
+  }
+}
+
+.liquid-nav {
+  width: 178px;
+  height: 125px;
+  margin: 0;  
+  padding: 60px 60px 120px;
+  position: relative;
+  z-index: 100;
+  &:hover {
+    .logo-text {
+      .opacity(0);
+    }
+  }
+}
+
+.logo-mark {
+  width: 75px;
+  height: 98px;
+  background: url('../images/logo-mark.gif');
+  background-size: cover;
+  margin: 0 auto;
+  padding: 0;
+  .transition(all 0.3s ease-in);
+}
+
+.logo-nav {
+  position: relative;
+  margin: 40px auto 0;
+  text-align: center;
+  left: 2px;
+  display: none;
+  z-index: 10;
+}
+
+.logo-tricirccirc {
+  display: block;
+  padding: 0;
+  height: 20px; 
+  width: 180px;
+  background: url('../images/logo-tricirccirc.png') no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: -27px;
+  top: 0;
+}
+
+.logo-text {
+  display: block;
+  padding: 0;
+  height: 20px; 
+  width: 196px;
+  background: url('../images/logo-type.png') no-repeat;
+  background-size: cover;
+  z-index: -10;
+
+  .transition(all 0.4s);
+}
+
+#slides-nav-ul {
+  a {
+    text-decoration: none;
+    font-size: 12px;
+  }
+  .tab1 {
+    display: none;
+  }
+  .tab2 {
+    display: inline-block;
+    position: absolute;
+    left: -51px;
+    top: 0;
+    .opacity(0);
+    .transition(all 0.4s);
+    &:hover {
+      .opacity(100);
+    }
+    a {
+      width: 46px;
+      height: 15px;
+      background: url('../images/nav-tricirccirc.png') no-repeat;
+      background-size: cover;
+      display: inline-block;
+      font-size: 18px;
+      color: transparent;
+    }
+  }
+  .tab3 {
+    display: inline-block;
+    position: absolute;
+    left: -1px;
+    top: 0;
+    .opacity(0);
+    .transition(all 0.4s);
+    &:hover {
+      .opacity(100);
+    }
+    a {
+      width: 67px;
+      height: 15px;
+      background: url('../images/nav-tricirccirc.png') no-repeat -58px 0;
+      background-size: cover;
+      display: inline-block;
+      font-size: 18px;
+      color: transparent;
+    }
+  }
+  .tab4 {
+    display: inline-block;
+    position: absolute;
+    left: 111px;
+    top: 0;
+    .opacity(0);
+    .transition(all 0.4s);
+    &:hover {
+      .opacity(100);
+    }
+    a {
+      width: 108px;
+      height: 15px;
+      background: url('../images/nav-tricirccirc.png') no-repeat -137px 0;
+      background-size: cover;
+      display: inline-block;
+      font-size: 18px;
+      color: transparent;
+    }
+  }
+}
+
+#float-nav {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  width: 298px;
+  margin-left: -148px;
+  z-index: -10;
+  .opacity(0);
+  .transition(all 0.6s);
+  .transition-delay(1.3s);
+  &.float-nav {
+    .opacity(100);
+    z-index: 10;
+  }
+  .liquid-nav {
+    padding-top: 0;
+  }
+}
+
+#sticky_header {
+  display: none;
+  position: fixed;
+  left: 0px;
+  top: 0;
+  right: 0;
+  height: 90px;
+  background: @white;
+  z-index: 9;
+  a {
+    float: right;
+    position: absolute;
+    background: url('../images/balaclava.png') no-repeat 0 0;
+    background-size: cover;
+    width: 20px;
+    height: 32px;
+    top: 30px;
+    right: 60px;
+    .opacity(0);
+    .transition(all 0.6s);
+    .transition-delay(0.3s);
+    vertical-align: middle;
+    text-align: center;
+    color: transparent;
+  }
+  &:hover {
+    a {
+      .opacity(100);
+    }
+  }
+}
+
+.col-container {
+  overflow: auto;
+}
+
+.left-col {
+  float:left;
+  overflow: hidden;
+  .multicontent {
+    width: 600px;
+    height: 336px;
+  }
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.right-col {
+  float: right;
+  width: 330px;
+  h3 {
+    margin-left: 14px;
+  }
+}
+
+.content {
+  margin-bottom: 25px;
+}
+
+.content-box {
+  overflow: hidden;
+  position: relative;
+  background: @globalAccent;
+  padding: 12px 20px 10px 15px;
+  height: 140px;
+  margin-bottom: 17px;
+  p, h2, h3 {
+    color: @white;
+  }
+  h2, h3 {
+    margin-top: 1px;
+  }
+  p {
+    font-family: Cambria, Georgia, serif;
+    margin-right: 8px;
+  }
+  ul {
+    margin: 0;
+  }
+  a {
+    color: @white;
+    text-decoration: none;
+  }
+  &.collaborator-list {
+    margin-bottom: 0;
+    height: 160px;
+    overflow: initial;
+    background-color: transparent;
+    padding: 0;
+    h3 {
+      color: @globalAccent;
+      padding-top: 5px;
+    }
+    .scroll-list {
+      height: 128px;
+      overflow: hidden;
+      position: relative;
+    }
+    ul {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 20px;
+    }
+    .ps-shad {
+      height: 30px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      .box-shadow(inset 0 -4px 8px -7px @globalAccent);
+    }
+  }
+  .ps-shad {
+    height: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    .box-shadow(inset 0 -22px 8px -5px @globalAccent);
+  }
+}
+
+.collaborator {
+  float: left;
+  margin: 10px 0 25px;
+  display: inline-block;
+  text-align: center;
+  width: 80px;
+  position: relative;
+  a {
+    line-height: 1.2em;
+    &:first-of-type {
+      vertical-align: middle;
+      display: inline-block;
+      width: 66px;
+      height: 66px;
+      border-radius: 34px;
+      border: 2px solid @globalAccent;
+      background-position: center;
+      .transition(all 0.2s);
+    }
+    & + a {
+      font-size: 10px;
+      position: absolute;
+      display: table-cell;
+      vertical-align: middle;
+      bottom: -32px;
+      width: 80px;
+      height: 26px;
+      margin-top: 10px;
+      color: @grayWarm;
+      letter-spacing: 1px;
+      .opacity(0);
+      .transition(all 0.3s);
+    }
+  }
+  &:hover {
+    a:first-of-type {
+    }
+    a + a {
+      .opacity(100);
+    }
+    &:after {
+      background: rgba(0,0,0,0.4);
+    }
+    .collaborator-hover {
+      .opacity(100);
+    }
+  }
+  &:after {
+    content: " ";
+    position: absolute;
+  }
+}
+
+.collaborator-hover {
+  top: 2px;
+  left: 7px;
+  width: 66px;
+  height: 66px;
+  background: url('../images/collabAmp.png') no-repeat 20px 13px rgba(0,0,0,0.4);
+  .border-radius(34px);
+  .transition(all 0.3s);
+  .opacity(0);
+}
+
+#stills-library {
+  margin-right: -15px !important;
+  white-space: nowrap;
+  li {
+    &:nth-of-type(5n) {
+      margin-right: 15px !important;
+    }
+  }
+}
+
+#projects-list, #photography-list, #stills-library {
+  display: block;
+  clear: both;
+  overflow: auto;
+  margin: 0;
+  li {
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+    &:nth-of-type(5n) {
+      //margin-right: 0;
+    }
+    a {
+      background-size: 300% !important;
+      background-position: center;
+      position: relative;
+      display: inline-block;
+      width: 180px;
+      height: 185px;
+      background-color: @grayLight;
+      color: @white;
+      overflow: hidden;
+      font-size: 9px;
+      line-height: 1.6em;
+      .transition(all 0.2s);
+      .meta {
+        height: 38px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        display: block;
+        background: @globalAccent;
+        position: absolute;
+        bottom: -38px;
+        left: 0;
+        right: 0;
+        padding: 6px 8px;
+        .opacity(0);
+        .transition(all 0.3s);
+        p {
+          font-family: @baseFontFamily;
+          font-size: @baseFontSize;
+          margin: 0;
+          position: relative;
+          .opacity(0);
+          .transition(all 0.9s);
+        }
+      }
+      &:hover {
+        .meta {
+          bottom: 0;
+          .opacity(100);
+          p {
+            .opacity(100);
+          }
+        }
+      }
+    }
+  }
+}
+
+.social-media {
+  margin: 12px 0 25px;
+  display: block;
+  clear: both;
+  overflow: auto;
+    a {
+      display: inline-block;
+      background: url('../images/tricirccirc-social.png') no-repeat;
+      height: 20px;
+      .transition(all 0.3s);
+      &:hover {
+        .opacity(50);
+      }
+    }
+    .share-icon-facebook {
+      width: 9px;
+      margin-right: 20px;
+    }
+    .share-icon-twitter {
+      width: 27px;
+      background-position: -29px 0;
+      margin-right: 16px;
+    }
+    .share-icon-stumbleupon {
+      width: 22px;
+      background-position: -74px 0;
+      margin-right: 18px;
+    }
+    .share-icon-pinterest {
+      width: 22px;
+      background-position: -114px 0;
+      margin-right: 18px;
+    }
+    .share-icon-email {
+      width: 24px;
+      background-position: -155px 0;
+    }
+}
+
+.contact-container {
+  text-align: center;
+  position: absolute;
+  top: 230px;
+  left: 50%;
+  margin-left: -306px;
+  margin-top: -82px;
+  h4 {
+    text-transform: uppercase;
+    margin-bottom: 45px;
+  }
+  .btn {
+    margin-top: 30px;
+    margin-bottom: 36px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.mail-link, .twitter-link {
+  background: url('../images/ContactSPRITE.png')no-repeat;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  .transition(all 0.3s ease-in);
+  .opacity(100);
+  &:hover {
+    .opacity(50);
+  }
+}
+
+.mail-link {
+  width: 286px;
+  height: 54px;
+  background-position: 0 0;
+  margin-bottom: 50px;
+}
+
+.twitter-link {
+  width: 147px;
+  height: 54px;
+  background-position: 0 -53px;
+}
+
+.ps-scrollbar-y {
+  margin-top: 14px;
+}
+
+.library-nav {
+  position: relative;
+  width: 100%;
+  //display: none;
+}
+
+#stills_prev, #stills_next {
+  position: absolute;
+  background: url('../images/carousel-nav.png') no-repeat;
+  display: inline-block;
+  width: 16px;
+  height: 14px;
+  top: -100px;
+  .opacity(60);
+  .transition(all 0.3s);
+  &:hover{
+    .opacity(100);
+  }
+}
+
+#stills_prev {
+  left: -30px;
+}
+#stills_next {
+  background-position: -16px 0;
+  right: -30px;
+}
+
+.caroufredsel_wrapper {
+  margin-bottom: 10px;
+}
+
+#mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.05);
+  z-index: 100;
+  display: none;
+}
+
+.coming-soon {
+  li {
+    width: 180px;
+    height: 180px;
+    float: left;
+    margin-right: 15px;
+    background: url('../images/projects_sprite.png') no-repeat;
+    &.grolsch {
+      &:hover {
+        background-position: 0 -180px;
+      }
+    }
+    &.multichoice {
+      background-position: -180px 0;
+      &:hover {
+        background-position: -180px -180px;
+      }
+    }
+    &.majorlazer {
+      background-position: -360px 0;
+      &:hover {
+        background-position: -360px -180px;
+      }
+    }
+    &.dawg {
+      background-position: -540px 0;
+      &:hover {
+        background-position: -540px -180px;
+      }
+    }
+  }
+}
+
+#mobileMask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: @white;
+  z-index: 100;
+  display: none;
+  & > div {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  a {
+    margin: 0 auto;
+  }
+}
+
+#jquery-lightbox {
+  #lightbox-image{
+    top: 0 !important;
+  }
+}
+
+/*
+#frame {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  ul {
+    list-style: none;
+    margin: 0;
+    height: 100%;
+
+    li {
+      float: left;
+      height: 100%;
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+*/
+
+/***********************************************************************
+*
+*  Liquid Slider
+*  Kevin Batdorf
+*
+*  http://liquidslider.com
+*
+*  GPL license 
+*
+************************************************************************/
+
+/******************************************************
+* No JavaScript
+* Use this to apply styles when Javascript is disabled,
+* and be sure to include the ".no-js" class in your html 
+* markup.
+*******************************************************/
+.no-js .liquid-slider {
+  height:350px;
+  overflow:scroll;
+}
+
+/******************************************************
+* Preloader
+* Use this to apply styles when Javascript is disabled,
+* and be sure to include the ".no-js" class in your html 
+* markup.
+*******************************************************/
+.liquid-slider-wrapper .liquid-slider-preloader {  
+  background: url(../images/loading.gif) #fff no-repeat center 25%;
+  /* Do not edit below this line */
+  width:100%;
+  height:200%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+/******************************************************************
+* Base Styles 
+* The styles here will apply to everything. I recommend you keep
+* the styles in here specific to mobile defices, then use
+* the media queries at the bottom to define further styles for larger
+* screen-sizes. Think Mobile First. But be cautious of how
+* your site will look in older IE browsers.
+*
+* Additional media queries are at the bottom of this document
+******************************************************************/
+.liquid-slider-wrapper {
+  margin:0 auto;
+  height: 100%;
+  /* Do not edit below this line */
+  clear: both;
+  position: relative;
+}
+
+/******************************************************
+* Main Container
+* This is the main container (minus the navigation).
+* Be sure to match the width with the .panel class, 
+* or it won't work properly. Also, width only applies
+* if you are not using the responsive setting.
+*
+* The responsive slider will interpret the width as the
+* max width instead
+*******************************************************/
+
+.content-container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.liquid-slider-wrapper .liquid-slider {
+  background: #fff;
+  width: 100%;
+  min-height: 100%;
+  /* Do not edit below this line */
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+.liquid-slider-wrapper .panel-container {
+  min-height: 100%;
+  /* Do not edit below this line */
+  position: relative;
+
+}
+
+.liquid-slider-wrapper .panel-container .slides-panel {
+  min-height: 100%;
+}
+
+.liquid-slider-wrapper .liquid-slider .panel-container .fadeClass {
+  /* Do not edit below this line */
+  position: absolute;
+  top: 0; 
+  left: 0;
+  display: none;
+}
+
+/******************************************************
+* Panels
+* This is for the panels. If you are using the 
+* responsive setting, this will act as the max-width
+* for the entire slider.
+*******************************************************/
+.liquid-slider-wrapper .liquid-slider .panel {  
+  width: 100%;
+  /* Do not edit below this line */
+  display: block;
+  float: left;
+}
+
+/******************************************************
+* These provide a base starting point for images and
+* video. However, you will have to add more rules
+* based on the content you use. Use the @media queries 
+* at the bottom of this file.
+*******************************************************/
+.liquid-slider-wrapper .liquid-slider .panel img{
+  /*
+  width:100%;
+  height:auto;  
+  margin:0 5px;
+  */
+}
+
+.liquid-slider-wrapper .liquid-slider .panel video {
+  /*
+  width:100%;  
+  height:auto;
+  */
+}
+
+/******************************************************
+* This is mainly used to adjust the padding inside each 
+* panel. If you are using the responsive setting, you
+* need to use the settings below as this will not apply.
+*******************************************************/
+.liquid-slider-wrapper .liquid-slider .panel-wrapper {  
+  padding: 20px;
+  /* Do not edit below this line */
+  position:relative;
+}
+
+/*****************************************************
+* This will adjust styles for all navigation tabs
+* less of course the select box used for mobile 
+* navigation. The .current styles will apply only to 
+* the current tab.
+*
+* You may use this section to create navigation for
+* mobile devices if you set mobileNavigation: false
+* Be sure to edit media queries for larger devices below
+* I have included an example below in comments.
+*
+* .currentCrossLink refers to external crosslinking.
+*******************************************************/
+.liquid-slider-wrapper .liquid-nav a {
+  background: #d8d8d8;
+  color: #333333;
+  margin-right: 1px;
+  padding: 3px 6px;  
+}
+.liquid-slider-wrapper .liquid-nav a:hover {
+  background: #f2f2f2;
+  color: #333333;
+  text-shadow: none;
+}
+.liquid-slider-wrapper .liquid-nav .current {
+  background: #f2f2f2;
+}
+.currentCrossLink {
+  font-weight: bold;
+}
+.liquid-slider-wrapper .liquid-nav ul {  
+  padding:0;
+  /* Do not edit below this line */
+  clear: both;
+  display: block;
+  margin: auto;
+}
+.liquid-slider-wrapper .liquid-nav ul li {
+  /* Do not edit below this line */
+  display: inline;
+}
+.liquid-slider-wrapper .liquid-nav ul li a {
+ 
+  /* Do not edit below this line */
+  display: block;
+  float: left;
+  text-decoration: none;
+}
+/*****************************************************
+* Mobile Menu
+* This will adjust styles for selectbox styles. I have
+* included a simple example to create a custom select
+* box.
+*******************************************************/
+.liquid-slider-wrapper .liquid-nav {
+  overflow:hidden;
+  clear:both;
+}
+.liquid-slider-wrapper .liquid-slider-select-box {  
+  /* Delete these if you want the standard select box.
+     Also delete the rules below */
+
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+  background: url(../img/menu.png) no-repeat right #ddd;
+  
+}
+.liquid-slider-wrapper .liquid-slider-select-box select {  
+  /* If you want the standard select box, use 
+  width:100%
+  And delete the rest of the styling here */
+
+  width: 150%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance:none;
+  background: transparent;
+  padding: 5px;
+  font-size: 110%;
+  border: 1px solid #bbb;
+  height: 35px;
+  cursor:pointer;
+}
+
+/******************************************************
+* Arrows
+* This section refers to both the non-graphical and 
+* graphical navigation arrows. 
+*
+* Some settings will be overwritten when using the 
+* responsive setting.
+*******************************************************/
+.liquid-slider-wrapper .liquid-nav-left, .liquid-slider-wrapper .liquid-nav-right {
+  /* Do not edit below this line */
+  float: left;
+}
+.liquid-slider-wrapper .liquid-nav-left a, .liquid-slider-wrapper .liquid-nav-right a {
+  /* non-graphical arrows */
+  background: #000;
+  color: #fff;
+  padding: 5px;
+  width: 100px;
+  /* Do not edit below this line */
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+.liquid-slider-wrapper .liquid-nav-left-arrow, .liquid-slider-wrapper .liquid-nav-right-arrow {
+  cursor: pointer;
+  /* Do not edit below this line */
+  float: left;
+}
+.liquid-slider-wrapper .liquid-nav-left-arrow a, .liquid-slider-wrapper .liquid-nav-right-arrow a {
+  /* Do not edit below this line */
+  display: block;
+}
+.liquid-slider-wrapper .liquid-nav-left, .liquid-slider-wrapper .liquid-nav-left-arrow {
+  /* Do not edit below this line */
+  clear: both;
+}
+.liquid-slider-wrapper .liquid-nav-right-arrow {
+  width: 25px;
+  height: 25px;
+  background: url(../img/arrow.png) no-repeat top right;
+  margin-top: 50px;
+  margin-right: 5px;
+  /* Do not edit below this line */
+  position:relative;
+}
+.liquid-slider-wrapper .liquid-nav-left-arrow {
+  width: 25px;
+  height: 25px;
+  background: url(../img/arrow.png) no-repeat top left;
+  margin-top: 50px;
+  margin-left: 5px;
+  /* Do not edit below this line */
+  position:relative;
+}
+.liquid-slider-wrapper .liquid-nav-left-arrow:hover {
+  /* Left graphical arrows hover */
+  background: url(../img/arrow.png) no-repeat bottom left;
+}
+.liquid-slider-wrapper .liquid-nav-left-arrow:active {
+  /* Left graphical arrows click */
+}
+.liquid-slider-wrapper .liquid-nav-right-arrow:hover {
+  /* Right graphical arrows hover */
+  background: url(../img/arrow.png) no-repeat bottom right;
+}
+.liquid-slider-wrapper .liquid-nav-right-arrow:active {
+  /* Right graphical arrows click */
+}
+.arrows .liquid-slider {
+  /* Margin between slider and arrows */
+  margin: 0 10px;
+}
+
+/******************************************************
+* Responsive Styles
+* Here are the main responsive styles. This mostly 
+* covers the arrows, and most of the settings can be
+* applied above.
+*******************************************************/
+.liquid-responsive .liquid-slider {
+  /* Do not edit below this line */
+  width: 100%;
+  margin: 0;
+}
+.liquid-responsive .liquid-slider .panel .panel-wrapper {
+  padding: 10px;
+}
+.liquid-responsive .liquid-nav-left {
+  /* Left non-graphical arrows */
+  /* Do not edit below this line */
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+.liquid-responsive .liquid-nav-left a {
+  /* Left non-graphical arrows */
+  background: #9A9A9A;
+  width: 80px;
+}
+.liquid-responsive .liquid-nav-left a:hover {
+  /* Left non-graphical hover */
+  background: #747474;
+}
+.liquid-responsive .liquid-nav-right {
+  /* Right non-graphical arrows */
+  /* Do not edit below this line */
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+.liquid-responsive .liquid-nav-right a {
+  /* Right non-graphical arrows */
+  background: #9A9A9A;
+  width: 80px;
+}
+.liquid-responsive .liquid-nav-right a:hover {
+  /* Right non-graphical arrows hover */
+  background: #747474;
+}
+.liquid-responsive .liquid-nav-left-arrow {
+  /* Do not edit below this line */
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+.liquid-responsive .liquid-nav-right-arrow {
+  /* Do not edit below this line */
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+/******************************************************************
+* Larger Mobile Devices
+* This is for devices like the Galaxy Note or something that's 
+* larger than an iPhone but smaller than a tablet. 
+******************************************************************/
+@media only screen and (min-width: 481px) {
+  .liquid-slider-wrapper .liquid-slider .panel img{
+    /* Example */
+    /*
+    width:24%;
+    margin:2px;
+    */
+  }
+
+}
+
+/******************************************************************
+* Tablet & Smaller Laptops
+* This will include tablets and some netbooks.
+******************************************************************/
+@media only screen and (min-width: 768px) {
+  .liquid-slider-wrapper .liquid-slider .panel img{
+    /* Example */
+    /*
+    width:24%;
+    */
+  }
+  .liquid-responsive .liquid-slider .panel .panel-wrapper {
+    padding: 100px 35px 20px;
+  }
+}
+
+/******************************************************************
+* DESKTOP 
+* This is the average viewing window. So Desktops, Laptops, and 
+* in general anyone not viewing on a mobile device. Here's where
+* you can add resource intensive styles.
+******************************************************************/
+@media only screen and (min-width: 100%) {
+  
+
+}
+
+/******************************************************************
+* LARGE VIEWING SIZE 
+* This is for the larger monitors and possibly full screen viewers.
+******************************************************************/
+@media only screen and (min-width: 1240px) {
+  
+
+}
+
+/******************************************************************
+* RETINA (2x RESOLUTION DEVICES)
+* This applies to the retina iPhone (4s) and iPad (2,3) along with 
+* other displays with a 2x resolution. You can also create a media
+* query for retina AND a certain size if you want. Go Nuts.
+******************************************************************/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+  
+
+}
+
+
+/* line 6, ../sass/lightbox.sass */
+#lightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: black;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+  opacity: 0.85;
+  display: none;
+}
+
+/* line 15, ../sass/lightbox.sass */
+#lightbox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+  line-height: 0;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-weight: normal;
+}
+/* line 24, ../sass/lightbox.sass */
+#lightbox img {
+  width: auto;
+  height: auto;
+}
+/* line 27, ../sass/lightbox.sass */
+#lightbox a img {
+  border: none;
+}
+
+/* line 30, ../sass/lightbox.sass */
+.lb-outerContainer {
+  position: relative;
+  background-color: white;
+  *zoom: 1;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.lb-outerContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 39, ../sass/lightbox.sass */
+.lb-container {
+  padding: 10px;
+}
+
+/* line 42, ../sass/lightbox.sass */
+.lb-loader {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+}
+
+/* line 51, ../sass/lightbox.sass */
+.lb-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+/* line 59, ../sass/lightbox.sass */
+.lb-container > .nav {
+  left: 0;
+}
+
+/* line 62, ../sass/lightbox.sass */
+.lb-nav a {
+  outline: none;
+}
+
+/* line 65, ../sass/lightbox.sass */
+.lb-prev, .lb-next {
+  width: 49%;
+  height: 100%;
+  background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+  /* Trick IE into showing hover */
+  display: block;
+}
+
+/* line 72, ../sass/lightbox.sass */
+.lb-prev {
+  left: 0;
+  float: left;
+}
+
+/* line 76, ../sass/lightbox.sass */
+.lb-next {
+  right: 0;
+  float: right;
+}
+
+/* line 81, ../sass/lightbox.sass */
+.lb-prev:hover {
+  background: url(../images/prev.png) left 48% no-repeat;
+}
+
+/* line 85, ../sass/lightbox.sass */
+.lb-next:hover {
+  background: url(../images/next.png) right 48% no-repeat;
+}
+
+/* line 88, ../sass/lightbox.sass */
+.lb-dataContainer {
+  margin: 0 auto;
+  padding-top: 5px;
+  *zoom: 1;
+  width: 100%;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -ms-border-bottom-left-radius: 4px;
+  -o-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -ms-border-bottom-right-radius: 4px;
+  -o-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.lb-dataContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 95, ../sass/lightbox.sass */
+.lb-data {
+  padding: 0 10px;
+  color: #bbbbbb;
+}
+/* line 98, ../sass/lightbox.sass */
+.lb-data .lb-details {
+  width: 85%;
+  float: left;
+  text-align: left;
+  line-height: 1.1em;
+}
+/* line 103, ../sass/lightbox.sass */
+.lb-data .lb-caption {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1em;
+}
+/* line 107, ../sass/lightbox.sass */
+.lb-data .lb-number {
+  display: block;
+  clear: left;
+  padding-bottom: 1em;
+  font-size: 11px;
+}
+/* line 112, ../sass/lightbox.sass */
+.lb-data .lb-close {
+  width: 35px;
+  float: right;
+  padding-bottom: 0.7em;
+  outline: none;
+}
+/* line 117, ../sass/lightbox.sass */
+.lb-data .lb-close:hover {
+  cursor: pointer;
+}
+
+
+#lightbox-secNav-btnClose {
+  width: 16px; 
+  float: right;
+  padding-top: 3px;
+  img {
+    width: 35px;
+    max-width: none;
+    margin-left: -10px;
+    vertical-align: bottom;
+  }
+}
+
+.mobile-content {
+  .wrapper {
+    background: #fff;
+    border: 1px solid #bcbcbc;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .logo-mark-intro {
+    margin: 20px auto;
+    background: url('../images/logo-mark.gif') no-repeat;
+    width: 75px;
+    height: 99px;
+    background-size: cover;
+  }
+
+  .logo-container-intro
+  {
+    margin: 0 auto;
+    height: 20px;
+  }
+
+  .logo-container {
+    margin: 0 -20px;
+  }
+
+  .logo {
+    width: 349px;
+    height: 55px;
+    margin: 20px auto;
+    padding: 0;
+  }
+
+  .logo1{
+    background: url('../images/play1.gif');
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 113px;
+    height: 55px;
+  }
+
+  .logo4{
+    background: url('../images/logo1.gif');
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 113px;
+    height: 55px;
+  }
+
+  .logo2{
+    background: url('../images/logo2.gif');
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 99px;
+    height: 55px;
+  }
+
+  .logo3{
+    background: url('../images/logo3.gif');
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 128px;
+    height: 55px;
+  }
+
+  .contact3{
+    background: url('../images/contact3.gif');
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 128px;
+    height: 55px;
+  }
+
+
+  .work1{
+    background: url('../images/work1.gif');
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 113px;
+    height: 55px;
+  }
+
+  .work2{
+    background: url('../images/work2.gif');
+    float: left;
+    margin: 0 0 0 -1px;
+    padding: 0;
+    width: 99px;
+    height: 55px;
+  }
+
+  .default h3 {
+    color: #323232;
+    font-family: "Futura", Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 2px;
+  }
+
+  .video-container {
+    height: 200px;
+    background: url('../images/loader.gif') center no-repeat;
+  }
+
+  .story {
+    background: #2d2d2d;
+  }
+  .story p {
+    font-size: 14px;
+    font-family: "Cambria", Georgia, serif;
+    line-height: 20px;
+    padding: 20px;
+    color: white;
+  }
+  .colab {
+    display: block;
+    margin-bottom: 30px;
+    height: 55px;
+  }
+  .colab-img {
+    float: left;
+    img{
+      width: 80px;
+      height: 80px;
+      .border-radius(40px);
+      border: 2px solid @globalAccent;
+    }
+  }
+
+  .colab-name {
+    float: left;
+    text-align: left;
+    margin-top: 20px;
+    white-space:nowrap;
+  }
+
+  .colab-amp {
+    float: left;
+    background: url("../images/ampersand.png");
+    width: 34px;
+    height: 49px;
+    margin-top: 14px;
+  }
+
+  .colab-name h4 {
+    font-family: "Futura", Helvetica, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #575556;
+    text-align: left;
+    float: left;
+    whitespace: none;
+    line-height: 20px;
+
+  }
+
+  .colab-name h4 a {
+    text-decoration: none;
+    font-family: "Futura", Helvetica, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #575556;
+
+  }
+
+  .colab-name a:hover{
+    text-decoration: none!important;
+  }
+
+  .photos {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .photos img {
+    margin-bottom: 20px;
+    -moz-box-shadow: 2px 2px 2px #999; /* Firefox */  
+    -webkit-box-shadow: 2px 2px 2px #999; /* Safari, Chrome */  
+    box-shadow: 2px 2px 2px #999; /* CSS3 */  
+    border: 1px solid #e7e7e7;
+  }
+
+  .emaily {
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .emaily a {
+     text-decoration: none;
+      font-family: "Futura", Helvetica, sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: white;
+      background: #2d2d2d;
+      padding: 10px 5px;
+  }
+
+  .emaily a:hover {
+     text-decoration: none;
+      font-family: "Futura", Helvetica, sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: white;
+      background: #2d2d2d;
+      padding: 10px 5px;
+  }
+
+  .contact h3 {
+    line-height: 20px;
+  }
+
+  .twitter {
+    margin: 40px auto 24px auto;
+    width: 130px;
+    height: 78px;
+    background: url('../images/twitter.png') 0 -78px no-repeat;
+  }
+
+  .coming-soon {
+    text-align: center;
+  }
+
+  .coming-soon-photo-grolsch{
+    width: 177px;
+    height: 181px;
+    display: block;
+    margin-bottom: 20px;
+    background: url('../images/grolsch.jpg') 0 0 no-repeat;
+  }
+
+
+  .coming-soon-photo-grolsch:hover{
+    width: 177px;
+    height: 181px;
+    display: block;
+    background: url('../images/grolsch.jpg') 0 -181px no-repeat;
+  }
+
+  .coming-soon-photo-multichoice{
+    width: 177px;
+    height: 181px;
+    display: block;
+    margin-bottom: 20px;
+    background: url('../images/multichoice.jpg') 0 0 no-repeat;
+  }
+
+
+  .coming-soon-photo-multichoice:hover{
+    width: 177px;
+    height: 181px;
+    display: block;
+    background: url('../images/multichoice.jpg') 0 -181px no-repeat;
+  }
+
+  .coming-soon-photo-majorlazer{
+    width: 177px;
+    height: 181px;
+    display: block;
+    margin-bottom: 20px;
+    background: url('../images/majorlazer.jpg') 0 0 no-repeat;
+  }
+  .coming-soon-photo-majorlazer:hover{
+    width: 177px;
+    height: 181px;
+    display: block;
+    background: url('../images/majorlazer.jpg') 0 -181px no-repeat;
+  }
+
+  .row-fluid {
+    h3 {
+      margin-top: 15px;
+    }
+  }
+  .accordion-heading {
+    h3 {
+      margin-top: 18px;
+    }
+  }
+}

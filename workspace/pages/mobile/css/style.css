@@ -1,0 +1,188 @@
+@font-face {
+    font-family: 'Futura';
+    src: url('../fonts/futurastd-medium.eot');
+    src: url('../fonts/futurastd-medium?#iefix') format('embedded-opentype'),
+         url('../fonts/futurastd-medium.woff') format('woff'),
+         url('../fonts/futurastd-medium.ttf') format('truetype'),
+         url('../fonts/futurastd-medium.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.wrapper {
+  background: #fff;
+  border: 1px solid #bcbcbc;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.logo-container {
+  margin: 0 auto;
+}
+
+.logo {
+  width: 349px;
+  height: 55px;
+  margin: 20px -20px;
+  padding: 0;
+}
+
+.logo1{
+  background: url('../images/play1.gif');
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 113px;
+  height: 55px;
+}
+
+.logo2{
+  background: url('../images/logo2.gif');
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 99px;
+  height: 55px;
+}
+
+.logo3{
+  background: url('../images/logo3.gif');
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 128px;
+  height: 55px;
+}
+
+.contact3{
+  background: url('../images/contact3.gif');
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 128px;
+  height: 55px;
+}
+
+
+.work1{
+  background: url('../images/work1.gif');
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 113px;
+  height: 55px;
+}
+
+.work2{
+  background: url('../images/work2.gif');
+  float: left;
+  margin: 0 0 0 -1px;
+  padding: 0;
+  width: 99px;
+  height: 55px;
+}
+
+.default h3 {
+  color: #323232;
+  font-family: "Futura", Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  font-weight: normal;
+}
+
+
+.story {
+  background: #2d2d2d;
+}
+.story p {
+  font-size: 15px;
+  font-family: "Cambria", Georgia, serif;
+  line-height: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.colab {
+  display: block;
+  margin-bottom: 30px;
+}
+.colab-img {
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+.colab-img img{
+  filter: grayscale(10%);
+       -webkit-filter: grayscale(10%); -moz-filter: grayscale(10%);
+       -ms-filter: grayscale(10%); -o-filter: grayscale(10%);
+}
+
+
+
+.colab-name {
+  float: left;
+}
+
+.colab-amp {
+  float: left;
+  background: url("../images/ampersand.png");
+  width: 42px;
+  height: 49px;
+  margin-top: 5px;
+}
+
+.colab-name h3{
+  font-family: "Futura", Helvetica, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #575556;
+
+}
+
+.colab-name h3 a{
+  text-decoration: none;
+  font-family: "Futura", Helvetica, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #575556;
+
+}
+
+.colab-name a:hover{
+  text-decoration: none!important;
+
+}
+
+.emaily {
+  margin: 20px; auto;
+  text-align: center;
+}
+
+.emaily a {
+   text-decoration: none;
+    font-family: "Futura", Helvetica, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: white;
+    background: #2d2d2d;
+    padding: 10px 5px;
+}
+
+.emaily a:hover {
+   text-decoration: none;
+    font-family: "Futura", Helvetica, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: white;
+    background: #2d2d2d;
+    padding: 10px 5px;
+}
+
+.contact h3 {
+  line-height: 20px;
+}
